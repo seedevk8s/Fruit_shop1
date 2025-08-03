@@ -1,0 +1,227 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  
+  <!-- 제목 -->
+  <text x="600" y="40" text-anchor="middle" font-size="28" font-weight="bold" fill="#2c3e50">
+    React 핵심 개념 시각화
+  </text>
+  
+  <!-- JSX 섹션 -->
+  <g id="jsx-section">
+    <rect x="50" y="80" width="250" height="160" rx="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="175" y="105" text-anchor="middle" font-size="18" font-weight="bold" fill="#1976d2">JSX</text>
+    <text x="60" y="130" font-size="12" fill="#333">
+      <tspan x="60" dy="0">• HTML + JavaScript</tspan>
+      <tspan x="60" dy="15">• {expression} 문법</tspan>
+      <tspan x="60" dy="15">• 하나의 부모 요소</tspan>
+      <tspan x="60" dy="15">• className 사용</tspan>
+    </text>
+    <!-- JSX 예시 코드 박스 -->
+    <rect x="60" y="180" width="230" height="50" rx="5" fill="#fff" stroke="#ddd"/>
+    <text x="70" y="195" font-size="10" font-family="monospace" fill="#666">
+      <tspan x="70" dy="0">&lt;div className="card"&gt;</tspan>
+      <tspan x="70" dy="12">  &lt;h1&gt;{title}&lt;/h1&gt;</tspan>
+      <tspan x="70" dy="12">&lt;/div&gt;</tspan>
+    </text>
+  </g>
+  
+  <!-- Components 섹션 -->
+  <g id="components-section">
+    <rect x="320" y="80" width="250" height="160" rx="10" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
+    <text x="445" y="105" text-anchor="middle" font-size="18" font-weight="bold" fill="#9c27b0">Components</text>
+    <text x="330" y="130" font-size="12" fill="#333">
+      <tspan x="330" dy="0">• 재사용 가능한 UI 조각</tspan>
+      <tspan x="330" dy="15">• 함수형/클래스형</tspan>
+      <tspan x="330" dy="15">• 독립적이고 격리됨</tspan>
+      <tspan x="330" dy="15">• 조합하여 복잡한 UI 구성</tspan>
+    </text>
+    <!-- 컴포넌트 예시 -->
+    <rect x="330" y="180" width="230" height="50" rx="5" fill="#fff" stroke="#ddd"/>
+    <text x="340" y="195" font-size="10" font-family="monospace" fill="#666">
+      <tspan x="340" dy="0">const Header = () =&gt; {</tspan>
+      <tspan x="340" dy="12">  return &lt;h1&gt;Title&lt;/h1&gt;;</tspan>
+      <tspan x="340" dy="12">};</tspan>
+    </text>
+  </g>
+  
+  <!-- Props 섹션 -->
+  <g id="props-section">
+    <rect x="590" y="80" width="250" height="160" rx="10" fill="#e8f5e8" stroke="#4caf50" stroke-width="2"/>
+    <text x="715" y="105" text-anchor="middle" font-size="18" font-weight="bold" fill="#4caf50">Props</text>
+    <text x="600" y="130" font-size="12" fill="#333">
+      <tspan x="600" dy="0">• 부모 → 자식 데이터 전달</tspan>
+      <tspan x="600" dy="15">• 읽기 전용 (Read-only)</tspan>
+      <tspan x="600" dy="15">• 함수의 매개변수와 유사</tspan>
+      <tspan x="600" dy="15">• 구조분해할당 가능</tspan>
+    </text>
+    <!-- Props 예시 -->
+    <rect x="600" y="180" width="230" height="50" rx="5" fill="#fff" stroke="#ddd"/>
+    <text x="610" y="195" font-size="10" font-family="monospace" fill="#666">
+      <tspan x="610" dy="0">&lt;FruitCard</tspan>
+      <tspan x="610" dy="12">  name="사과" price={3000}</tspan>
+      <tspan x="610" dy="12">/&gt;</tspan>
+    </text>
+  </g>
+  
+  <!-- State 섹션 -->
+  <g id="state-section">
+    <rect x="860" y="80" width="250" height="160" rx="10" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+    <text x="985" y="105" text-anchor="middle" font-size="18" font-weight="bold" fill="#ff9800">State</text>
+    <text x="870" y="130" font-size="12" fill="#333">
+      <tspan x="870" dy="0">• 컴포넌트의 변경 가능한 데이터</tspan>
+      <tspan x="870" dy="15">• useState Hook 사용</tspan>
+      <tspan x="870" dy="15">• 상태 변경 시 리렌더링</tspan>
+      <tspan x="870" dy="15">• 지역 상태 vs 전역 상태</tspan>
+    </text>
+    <!-- State 예시 -->
+    <rect x="870" y="180" width="230" height="50" rx="5" fill="#fff" stroke="#ddd"/>
+    <text x="880" y="195" font-size="10" font-family="monospace" fill="#666">
+      <tspan x="880" dy="0">const [count, setCount] = </tspan>
+      <tspan x="880" dy="12">  useState(0);</tspan>
+    </text>
+  </g>
+  
+  <!-- 데이터 흐름 화살표들 -->
+  <g id="data-flow">
+    <!-- Props 화살표 (위에서 아래로) -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+      </marker>
+    </defs>
+    
+    <path d="M 715 250 Q 715 300 500 350" stroke="#4caf50" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="600" y="290" font-size="14" fill="#4caf50" font-weight="bold">Props Down</text>
+    
+    <!-- 이벤트 화살표 (아래에서 위로) -->
+    <defs>
+      <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+      </marker>
+    </defs>
+    
+    <path d="M 500 370 Q 500 320 715 280" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+    <text x="580" y="340" font-size="14" fill="#e74c3c" font-weight="bold">Events Up</text>
+  </g>
+  
+  <!-- 컴포넌트 계층 구조 -->
+  <g id="component-hierarchy">
+    <text x="200" y="300" font-size="16" font-weight="bold" fill="#2c3e50">컴포넌트 계층구조</text>
+    
+    <!-- App 컴포넌트 -->
+    <rect x="150" y="320" width="100" height="60" rx="10" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+    <text x="200" y="340" text-anchor="middle" font-size="12" fill="white" font-weight="bold">App</text>
+    <text x="200" y="355" text-anchor="middle" font-size="10" fill="white">state: cart</text>
+    
+    <!-- Header 컴포넌트 -->
+    <rect x="50" y="420" width="80" height="40" rx="5" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+    <text x="90" y="440" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Header</text>
+    
+    <!-- FruitList 컴포넌트 -->
+    <rect x="150" y="420" width="80" height="40" rx="5" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+    <text x="190" y="440" text-anchor="middle" font-size="11" fill="white" font-weight="bold">FruitList</text>
+    
+    <!-- Cart 컴포넌트 -->
+    <rect x="250" y="420" width="80" height="40" rx="5" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+    <text x="290" y="440" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Cart</text>
+    
+    <!-- FruitCard 컴포넌트들 -->
+    <rect x="120" y="480" width="60" height="30" rx="5" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+    <text x="150" y="498" text-anchor="middle" font-size="9" fill="white">Card</text>
+    
+    <rect x="190" y="480" width="60" height="30" rx="5" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+    <text x="220" y="498" text-anchor="middle" font-size="9" fill="white">Card</text>
+    
+    <!-- 연결선들 -->
+    <line x1="200" y1="380" x2="90" y2="420" stroke="#7f8c8d" stroke-width="2"/>
+    <line x1="200" y1="380" x2="190" y2="420" stroke="#7f8c8d" stroke-width="2"/>
+    <line x1="200" y1="380" x2="290" y2="420" stroke="#7f8c8d" stroke-width="2"/>
+    <line x1="190" y1="460" x2="150" y2="480" stroke="#7f8c8d" stroke-width="1"/>
+    <line x1="190" y1="460" x2="220" y2="480" stroke="#7f8c8d" stroke-width="1"/>
+  </g>
+  
+  <!-- React Hook 섹션 -->
+  <g id="hooks-section">
+    <rect x="400" y="320" width="300" height="200" rx="10" fill="#fdeef4" stroke="#d63384" stroke-width="2"/>
+    <text x="550" y="345" text-anchor="middle" font-size="18" font-weight="bold" fill="#d63384">React Hooks</text>
+    
+    <!-- useState -->
+    <circle cx="430" cy="370" r="15" fill="#17a2b8" stroke="#138496" stroke-width="2"/>
+    <text x="430" y="375" text-anchor="middle" font-size="10" fill="white" font-weight="bold">🔄</text>
+    <text x="455" y="375" font-size="12" fill="#333">
+      <tspan x="455" dy="0">useState - 상태 관리</tspan>
+      <tspan x="455" dy="15" font-size="10">const [state, setState] = useState(initial)</tspan>
+    </text>
+    
+    <!-- useEffect -->
+    <circle cx="430" cy="410" r="15" fill="#28a745" stroke="#1e7e34" stroke-width="2"/>
+    <text x="430" y="415" text-anchor="middle" font-size="10" fill="white" font-weight="bold">⚡</text>
+    <text x="455" y="415" font-size="12" fill="#333">
+      <tspan x="455" dy="0">useEffect - 사이드 이펙트</tspan>
+      <tspan x="455" dy="15" font-size="10">useEffect(() =&gt; {}, [deps])</tspan>
+    </text>
+    
+    <!-- useContext -->
+    <circle cx="430" cy="450" r="15" fill="#ffc107" stroke="#e0a800" stroke-width="2"/>
+    <text x="430" y="455" text-anchor="middle" font-size="10" fill="white" font-weight="bold">🌐</text>
+    <text x="455" y="455" font-size="12" fill="#333">
+      <tspan x="455" dy="0">useContext - 전역 상태</tspan>
+      <tspan x="455" dy="15" font-size="10">const value = useContext(Context)</tspan>
+    </text>
+    
+    <!-- Custom Hooks -->
+    <circle cx="430" cy="490" r="15" fill="#6f42c1" stroke="#59359a" stroke-width="2"/>
+    <text x="430" y="495" text-anchor="middle" font-size="10" fill="white" font-weight="bold">🔧</text>
+    <text x="455" y="495" font-size="12" fill="#333">
+      <tspan x="455" dy="0">Custom Hooks - 로직 재사용</tspan>
+      <tspan x="455" dy="15" font-size="10">const useCustom = () =&gt; { ... }</tspan>
+    </text>
+  </g>
+  
+  <!-- 이벤트 처리 섹션 -->
+  <g id="events-section">
+    <rect x="750" y="320" width="300" height="200" rx="10" fill="#e8f4fd" stroke="#0d6efd" stroke-width="2"/>
+    <text x="900" y="345" text-anchor="middle" font-size="18" font-weight="bold" fill="#0d6efd">이벤트 처리</text>
+    
+    <!-- 클릭 이벤트 -->
+    <rect x="760" y="360" width="120" height="30" rx="5" fill="#0d6efd" stroke="#084298" stroke-width="1"/>
+    <text x="820" y="378" text-anchor="middle" font-size="11" fill="white" font-weight="bold">onClick</text>
+    
+    <!-- 변경 이벤트 -->
+    <rect x="760" y="400" width="120" height="30" rx="5" fill="#198754" stroke="#146c43" stroke-width="1"/>
+    <text x="820" y="418" text-anchor="middle" font-size="11" fill="white" font-weight="bold">onChange</text>
+    
+    <!-- 제출 이벤트 -->
+    <rect x="760" y="440" width="120" height="30" rx="5" fill="#dc3545" stroke="#b02a37" stroke-width="1"/>
+    <text x="820" y="458" text-anchor="middle" font-size="11" fill="white" font-weight="bold">onSubmit</text>
+    
+    <!-- 이벤트 코드 예시 -->
+    <rect x="890" y="360" width="150" height="110" rx="5" fill="#fff" stroke="#ddd"/>
+    <text x="900" y="375" font-size="9" font-family="monospace" fill="#666">
+      <tspan x="900" dy="0">const handleClick = (e) =&gt; {</tspan>
+      <tspan x="900" dy="12">  e.preventDefault();</tspan>
+      <tspan x="900" dy="12">  setCount(count + 1);</tspan>
+      <tspan x="900" dy="12">};</tspan>
+      <tspan x="900" dy="24">&lt;button</tspan>
+      <tspan x="900" dy="12">  onClick={handleClick}</tspan>
+      <tspan x="900" dy="12">&gt;클릭&lt;/button&gt;</tspan>
+    </text>
+  </g>
+  
+  <!-- 하단 팁 -->
+  <g id="tips">
+    <rect x="50" y="560" width="1100" height="120" rx="10" fill="#fff8e1" stroke="#ff8f00" stroke-width="2"/>
+    <text x="600" y="585" text-anchor="middle" font-size="16" font-weight="bold" fill="#e65100">💡 React 개발 팁</text>
+    
+    <text x="70" y="610" font-size="13" fill="#333">
+      <tspan x="70" dy="0">🔸 <tspan font-weight="bold">단방향 데이터 흐름:</tspan> Props는 위에서 아래로, 이벤트는 아래에서 위로</tspan>
+      <tspan x="70" dy="20">🔸 <tspan font-weight="bold">불변성 유지:</tspan> 상태를 직접 수정하지 말고 새로운 객체/배열을 생성</tspan>
+      <tspan x="70" dy="20">🔸 <tspan font-weight="bold">key prop:</tspan> 배열을 렌더링할 때는 고유한 key를 반드시 제공</tspan>
+      <tspan x="70" dy="20">🔸 <tspan font-weight="bold">컴포넌트 분리:</tspan> 하나의 컴포넌트는 하나의 책임만 가지도록 설계</tspan>
+    </text>
+  </g>
+  
+  <!-- 브랜딩 -->
+  <text x="1150" y="790" text-anchor="end" font-size="10" fill="#95a5a6">React 과일가게 프로젝트 v1.0</text>
+</svg>

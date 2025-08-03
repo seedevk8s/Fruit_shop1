@@ -1,0 +1,51 @@
+flowchart TD
+    A[🚀 React 학습 시작] --> B[📦 Lab 1: 프로젝트 셋업]
+    B --> B1[Create React App 설치]
+    B --> B2[프로젝트 구조 파악]
+    B --> B3[개발 서버 실행]
+    
+    B --> C[🧩 Lab 2: 첫 컴포넌트]
+    C --> C1[JSX 문법 이해]
+    C --> C2[Header 컴포넌트 생성]
+    C --> C3[CSS 스타일링]
+    
+    C --> D[📤 Lab 3: Props 활용]
+    D --> D1[Props 개념 이해]
+    D --> D2[FruitCard 컴포넌트]
+    D --> D3[데이터 전달 및 렌더링]
+    
+    D --> E[🔄 Lab 4: State 관리]
+    E --> E1[useState Hook]
+    E --> E2[배열 데이터 관리]
+    E --> E3[FruitList 컴포넌트]
+    E --> E4[map 함수로 렌더링]
+    
+    E --> F[🛒 Lab 5: 이벤트 처리]
+    F --> F1[클릭 이벤트]
+    F --> F2[장바구니 기능]
+    F --> F3[상태 업데이트]
+    
+    F --> G[🏗️ Lab 6: 앱 통합]
+    G --> G1[컴포넌트 조합]
+    G --> G2[State Lifting Up]
+    G --> G3[Props Drilling]
+    
+    G --> H[🎯 완성된 과일가게 앱]
+    
+    H --> I[📚 심화 학습]
+    I --> I1[useEffect Hook]
+    I --> I2[React Router]
+    I --> I3[Context API]
+    I --> I4[성능 최적화]
+    
+    style A fill:#e1f5fe
+    style H fill:#c8e6c9
+    style I fill:#fff3e0
+    
+    classDef labStyle fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    classDef conceptStyle fill:#e8f5e8,stroke:#4caf50,stroke-width:2px
+    classDef advancedStyle fill:#fff8e1,stroke:#ff9800,stroke-width:2px
+    
+    class B,C,D,E,F,G labStyle
+    class B1,B2,B3,C1,C2,C3,D1,D2,D3,E1,E2,E3,E4,F1,F2,F3,G1,G2,G3 conceptStyle
+    class I1,I2,I3,I4 advancedStyle
