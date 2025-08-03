@@ -1,8 +1,13 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 import { Nav } from 'react-bootstrap'
-import { useState } from 'react';
- import { useEffect } from "react";
+
+import { useState, useEffect } from 'react'; // 한 줄로 합침
+import { addItem } from '../store.js'
+import { useDispatch } from 'react-redux'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+
 
 function Detail(props) {
     let {paramId} = useParams();
@@ -14,6 +19,10 @@ function Detail(props) {
     let [tap, setTap] = useState(0);
 
    let [fade2, setFade2] = useState('')
+
+    // dispatch 정의 추가
+    const dispatch = useDispatch(); 
+
     useEffect(()=>{
       setFade2('end')
       return ()=>{
@@ -21,8 +30,18 @@ function Detail(props) {
       }
     },[])
 
+   // 상품 유효성 체크 (이건 Hook 호출 이후에 실행되어야 함)
+    let selproduct = props.fruit.find((x) => x.id === Number(paramId));
 
-    const { imgUrl, title, content, price } = item;
+    // 훅은 조건문(if) 아래에서 호출하면 안 됨 (React가 Hook 순서 기억을 못함)
+    if (!selproduct) {
+     return <div>해당 상품이 존재하지 않습니다.</div>;
+    }
+
+    const { id, imgUrl, title, content, price } = selproduct;
+
+    console.log("내가 선택한 상품은: " + id + " " + title);
+
     return (
        <div className={'container start ' + fade2}>
             <div className="row">
@@ -33,7 +52,28 @@ function Detail(props) {
                     <h5 className="pt-5">{title}</h5>
                     <p>{content}</p>
                     <p>{price}</p>
-                    <button className="btn btn-danger">주문하기</button>
+                    <Button
+                        variant="primary"
+                        onClick={() => {
+                        //  dispatch(addItem(  {id : 1,  imgurl : 'fruit1.jpg', name : 'Grey Yordan', count : 1}))
+
+                        dispatch(
+                            addItem({
+                            id: id,
+                            imgurl: imgUrl.replace("img/", ""),
+                            name: title,
+                            count: 1,
+                            })
+                        );
+                        }}
+                        style={{ marginRight: "10px" }}
+                    >
+                        주문하기
+                    </Button>
+
+                    <Link to="/cart">
+                        <Button variant="outline-success"> 주문상품 확인하기 </Button>
+                    </Link>
                 </div>
             </div>
 
