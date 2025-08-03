@@ -1,0 +1,31 @@
+flowchart TD
+    FruitDB[fruit.js<br/>9개 과일 데이터] --> App[App.js<br/>메인 컴포넌트]
+    VeggieDB[veggie.js<br/>3개 야채 데이터] --> App
+    
+    App --> FruitState[fruit state<br/>과일 배열 상태]
+    App --> VeggieState[veggie state<br/>야채 배열 상태]
+    App --> CountState[count state<br/>더보기 카운터]
+    
+    FruitState --> PropsLoop[fruit.map 반복]
+    PropsLoop --> Products[Products.js<br/>개별 상품 컴포넌트]
+    
+    VeggieState --> VeggieLoop[veggie.map 반복]
+    VeggieLoop --> ComVeggie[ComVeggie.js<br/>개별 야채 컴포넌트]
+    
+    FruitState --> Detail[Detail.js<br/>상품 상세 페이지]
+    
+    Products --> ProductsProps[props 구조분해할당<br/>id, title, price, imgUrl, content]
+    ComVeggie --> VeggieProps[props 구조분해할당<br/>imgUrl, title, content, price]
+    
+    ProductsProps --> Navigate[useNavigate<br/>페이지 이동]
+    Navigate --> Detail
+    
+    Detail --> Redux[Redux Store<br/>전역 상태 관리]
+    Cart[Cart.js<br/>장바구니] --> Redux
+    Redux --> Cart
+    
+    App --> API[External API<br/>veggie2.json]
+    API --> VeggieState
+    
+    App --> SortFunctions[정렬 함수들<br/>배열 정렬]
+    SortFunctions --> FruitState
