@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import { Nav } from 'react-bootstrap'
 import { useState } from 'react';
+ import { useEffect } from "react";
 
 function Detail(props) {
     let {paramId} = useParams();
@@ -12,9 +13,18 @@ function Detail(props) {
     let item = props.fruit.find(f => f.id === parseInt(paramId));
     let [tap, setTap] = useState(0);
 
+   let [fade2, setFade2] = useState('')
+    useEffect(()=>{
+      setFade2('end')
+      return ()=>{
+        setFade2('')
+      }
+    },[])
+
+
     const { imgUrl, title, content, price } = item;
     return (
-       <div className="container">
+       <div className={'container start ' + fade2}>
             <div className="row">
                 <div className="col-md-6">
                    <img src={'/' + imgUrl} width="100%" alt={title} />
@@ -45,8 +55,21 @@ function Detail(props) {
     )
 }
 
+
 function TabContent({tap}){
-    return [ <div>내용0</div>, <div>내용1</div>, <div>내용2</div> ][tap]
-}
+    let [fade, setFade] = useState('')
+     useEffect( ()=>{
+      setTimeout(()=>{ setFade('end')},10)
+      return ()=>{
+          setFade('')
+      }
+     } ,[tap])
+  
+    return (
+      <div className={'start ' + fade}>
+        { [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tap] }
+      </div>
+    )
+  }
 
 export default Detail;
