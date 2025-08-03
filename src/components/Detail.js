@@ -7,7 +7,23 @@ import { addItem } from '../store.js'
 import { useDispatch } from 'react-redux'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import styled from 'styled-components'
 
+let Banner = styled.div`
+  padding : 20px;
+  color : gray;
+`;
+
+let BannerBtn = styled.button`
+  color : white;
+  font-size:30px;
+  width:100%;
+  padding : 100px 100px;
+  border:1px solid #ccc;
+  background-image:url("../img/banner.jpg");
+  background-size:cover;
+  background-position:center;
+`;
 
 function Detail(props) {
     let {paramId} = useParams();
@@ -44,6 +60,10 @@ function Detail(props) {
 
     return (
        <div className={'container start ' + fade2}>
+        <Banner>
+            <BannerBtn>과일농장의 맛과 건강을 선물하세요.</BannerBtn>
+        </Banner>     
+           
             <div className="row">
                 <div className="col-md-6">
                    <img src={'/' + imgUrl} width="100%" alt={title} />
