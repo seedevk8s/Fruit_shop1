@@ -1,0 +1,39 @@
+graph LR
+    Step1[1단계<br/>프로젝트 구조<br/>기본 설정] --> S1A[package.json<br/>의존성 파악]
+    Step1 --> S1B[index.js<br/>앱 진입점]
+    Step1 --> S1C[App.js<br/>기본 구조]
+    
+    Step1 --> Step2[2단계<br/>컴포넌트<br/>Props]
+    Step2 --> S2A[데이터 구조<br/>fruit.js<br/>veggie.js]
+    Step2 --> S2B[Products.js<br/>상품 컴포넌트]
+    Step2 --> S2C[ComVeggie.js<br/>야채 컴포넌트]
+    Step2 --> S2D[Props 전달<br/>map 함수]
+    
+    Step2 --> Step3[3단계<br/>라우팅<br/>상태관리]
+    Step3 --> S3A[Detail.js<br/>상세 페이지]
+    Step3 --> S3B[React Router<br/>useParams]
+    Step3 --> S3C[useState<br/>로컬 상태]
+    Step3 --> S3D[useEffect<br/>생명주기]
+    
+    Step3 --> Step4[4단계<br/>Redux<br/>전역 상태관리]
+    Step4 --> S4A[store.js<br/>스토어 설정]
+    Step4 --> S4B[Cart.js<br/>장바구니]
+    Step4 --> S4C[useSelector<br/>상태 읽기]
+    Step4 --> S4D[useDispatch<br/>액션 실행]
+    
+    Step4 --> Step5[5단계<br/>고급 기능<br/>최적화]
+    Step5 --> S5A[axios<br/>API 통신]
+    Step5 --> S5B[styled-components<br/>CSS-in-JS]
+    Step5 --> S5C[성능 최적화<br/>메모이제이션]
+    Step5 --> S5D[배포 준비<br/>Build Deploy]
+    
+    Practice1[실습 1<br/>환경 설정<br/>프로젝트 실행] --> Practice2[실습 2<br/>컴포넌트 수정<br/>Props 추가]
+    Practice2 --> Practice3[실습 3<br/>라우팅 실습<br/>새 페이지 추가]
+    Practice3 --> Practice4[실습 4<br/>장바구니 기능<br/>Redux 액션]
+    Practice4 --> Practice5[실습 5<br/>기능 확장<br/>개인 프로젝트]
+    
+    S1C --> Practice1
+    S2D --> Practice2
+    S3D --> Practice3
+    S4D --> Practice4
+    S5D --> Practice5

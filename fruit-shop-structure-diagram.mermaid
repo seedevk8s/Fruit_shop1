@@ -1,0 +1,33 @@
+graph TD
+    A[index.js<br/>앱 시작점] --> B[App.js<br/>메인 컴포넌트]
+    
+    A --> Store[store.js<br/>Redux 스토어]
+    Store --> User[user state<br/>사용자 정보]
+    Store --> Cart[cart state<br/>장바구니]
+    
+    A --> Router[React Router<br/>페이지 라우팅]
+    
+    Data1[fruit.js<br/>과일 데이터] --> B
+    Data2[veggie.js<br/>야채 데이터] --> B
+    
+    B --> Home[Home Route<br/>메인 화면]
+    Home --> Title[Title.js<br/>제목 컴포넌트]
+    Home --> Products[Products.js<br/>상품 목록]
+    Home --> ComVeggie[ComVeggie.js<br/>야채 컴포넌트]
+    Home --> Footer[Footer.js<br/>푸터]
+    
+    B --> Detail[Detail.js<br/>상품 상세]
+    B --> CartPage[Cart.js<br/>장바구니 페이지]
+    B --> About[About 컴포넌트<br/>회사소개]
+    About --> Member[Member<br/>멤버 정보]
+    About --> Location[Location<br/>위치 정보]
+    
+    Products --> Detail
+    Detail --> Store
+    CartPage --> Store
+    Store --> CartPage
+    
+    External[External API<br/>veggie2.json] --> B
+    
+    CSS1[App.css<br/>메인 스타일] --> B
+    CSS2[index.css<br/>글로벌 스타일] --> A
